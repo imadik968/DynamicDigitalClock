@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="clock.css">
+    <title>Dynamic_Digital_Clock</title>
+</head>
+<body>
+    <div class="box">
+        <p class="hour"></p>
+        <p class="minutes"></p>
+        <p class="seconds"></p>
+        <p class="ampm"></p>
+    </div>
+    
+    <script>
+        function myfunction(){
+            var hour=document.querySelector(".hour");
+        var minutes=document.querySelector(".minutes");
+        var seconds=document.querySelector(".seconds");
+        var ampm=document.querySelector(".ampm");
+
+        var current_time = new Date();
+        var hr=current_time.getHours();
+        var min=current_time.getMinutes();
+        var sec=current_time.getSeconds();
+        var day= "AM";
+        if(hr > 12){
+            day="PM"
+            hr=hr-12;
+        }
+        
+        hr=hr < 10 ? "0" + hr : hr;
+        min=min < 10 ? "0" + min : min;
+        sec=sec < 10 ? "0" + sec : sec;
+
+
+        hour.innerHTML=hr;
+        minutes.innerHTML=min;
+        seconds.innerHTML=sec;
+        ampm.innerHTML=day;
+        }
+
+        setInterval(myfunction, 1000)
+    </script>
+</body>
+</html>
